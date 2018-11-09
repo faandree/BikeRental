@@ -73,9 +73,9 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
     }
 
 
-    public float returnBicycle(int IDDeposit, int IDUser, int endTime) {
+    public float returnBicycle(int IDDeposit, int IDBike, int endTime) {
         Deposit d = findDeposit(IDDeposit);
-        User u = findUser(IDUser);
+        User u = findUserByBike(IDBike);
         int payment=0;
         if (d != null && u != null && u.getBike() != null && u.getBike().isInUSe()){
             Bike b = u.getBike();
