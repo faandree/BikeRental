@@ -1,4 +1,5 @@
 import Exceptions.UserAlreadyExists;
+import Exceptions.UserDoesNotExists;
 import Interfaces.AdministratorInterface;
 import Interfaces.UserInterface;
 import Models.Bike;
@@ -50,7 +51,10 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
         return 0;
     }
 
-    public int getBicycle(int IDDeposit, int IDUser, int startTime) {
+    public int getBicycle(int IDDeposit, int IDUser, int startTime) throws UserDoesNotExists {
+        if(findUser(IDUser)==null){
+            throw new UserDoesNotExists();
+        }
         Deposit d = findDeposit(IDDeposit);
         User u = findUser(IDUser);
         Bike b = null;
@@ -198,15 +202,54 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
 
     }
 
+    public void addLock(int idDeposit, int idLock) {
+        Deposit d =null;
+        Lock l = null;
+
+        for(Deposit deposit_tmp : this.deposits) {
+            if (deposit_tmp.getIDDeposit() == idDeposit) {
+                d = deposit_tmp;
+            }
+        }
+        if (d== null){
+            d = new Deposit(idDeposit);
+            this.deposits.add(d);
+        }
+        for(Lock lock_tmp : d.getLocks()) {
+            if (lock_tmp.getIDLock() == idLock) {
+                l = lock_tmp;
+            }
+        }
+        if (l== null){
+            l = new Lock(idLock);
+            d.getLocks().add(l);
+        }
+
+    }
+
     @Override
     public void addCredit(int idUser, int amount) {
         User u = findUser(idUser);
         if (u!=null && amount >0 && (u.getCredit() + amount >0)){
             u.setCredit(u.getCredit() + amount);
         }
-
     }
 
+    public int getRentalFee() {
+        return rentalFee;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public List<Deposit> getDeposits() {
+        return deposits;
+    }
+
+    public List<Bike> getBikes() {
+        return bikes;
+    }
 
     public String toString() {
         return "BikeRentalSystem{\n" +

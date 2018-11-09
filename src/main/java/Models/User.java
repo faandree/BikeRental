@@ -5,7 +5,7 @@ public class User {
     private int IDUser;
     private String name;
 
-    private int credit;
+    private float credit;
     private int numRentals;
     private int rentalProgram;
 
@@ -39,11 +39,11 @@ public class User {
         this.name = name;
     }
 
-    public int getCredit() {
+    public float getCredit() {
         return this.credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(float credit) {
         this.credit = credit;
     }
 
@@ -98,16 +98,8 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = IDUser;
-        result = 31 * result + name.hashCode();
-        result = 31 * result + credit;
-        result = 31 * result + numRentals;
-        result = 31 * result + rentalProgram;
-        result = 31 * result + bike.hashCode();
-        result = 31 * result + startRental;
-        return result;
+        return super.hashCode();
     }
-
 
     @Override
     public String

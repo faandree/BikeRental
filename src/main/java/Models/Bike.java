@@ -5,23 +5,44 @@ public class Bike {
     private int IDBike;
     private boolean InUSe;
 
+    /**
+     * Contrutor a classe bike
+     *
+     * @param IDBike - id da bicicleta
+     */
     public Bike(int IDBike) {
         this.IDBike = IDBike;
         this.InUSe = false;
     }
 
+    /**
+     *
+     *  @return - id da bicicleta
+     */
     public int getIDBike() {
         return IDBike;
     }
 
+    /**
+     *
+     * @param IDBike id da bicicleta
+     */
     public void setIDBike(int IDBike) {
         this.IDBike = IDBike;
     }
 
+    /**
+     *
+     * @return boleano se está em uso a bicicleta
+     */
     public boolean isInUSe() {
         return InUSe;
     }
 
+    /**
+     *
+     * @param inUSe - boleano para identificar se a bicicleta está em uso
+     */
     public void setInUSe(boolean inUSe) {
         InUSe = inUSe;
     }
