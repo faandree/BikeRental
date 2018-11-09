@@ -31,6 +31,24 @@ public class Deposit {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Deposit)) return false;
+
+        Deposit deposit = (Deposit) o;
+
+        if (IDDeposit != deposit.IDDeposit) return false;
+        return locks.equals(deposit.locks);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = IDDeposit;
+        result = 31 * result + locks.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Deposit{" +
                 "IDDeposit=" + IDDeposit +

@@ -81,6 +81,35 @@ public class User {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+
+        User user = (User) o;
+
+        if (IDUser != user.IDUser) return false;
+        if (credit != user.credit) return false;
+        if (numRentals != user.numRentals) return false;
+        if (rentalProgram != user.rentalProgram) return false;
+        if (startRental != user.startRental) return false;
+        if (!name.equals(user.name)) return false;
+        return bike.equals(user.bike);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = IDUser;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + credit;
+        result = 31 * result + numRentals;
+        result = 31 * result + rentalProgram;
+        result = 31 * result + bike.hashCode();
+        result = 31 * result + startRental;
+        return result;
+    }
+
+
+    @Override
     public String
     toString() {
         return "User{" +
