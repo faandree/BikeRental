@@ -89,7 +89,7 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
                     l.setInUse(true);
                     b.setInUSe(false);
                     l.setBike(b);
-                   return l.getIDLock();
+                   return u.getCredit();
                 }
             }
         }
