@@ -73,7 +73,7 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
     }
 
 
-    public int returnBicycle(int IDDeposit, int IDUser, int endTime) {
+    public float returnBicycle(int IDDeposit, int IDUser, int endTime) {
         Deposit d = findDeposit(IDDeposit);
         User u = findUser(IDUser);
         int payment=0;
