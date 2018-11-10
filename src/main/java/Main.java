@@ -24,9 +24,9 @@ public class Main {
        adminUI.addBicycle(2,3,3);
       
        //adição de depositos sem bicicletas no sistema
-       //adminUI.addLock(2,1);
-       //adminUI.addLock(2,2);
-      // adminUI.addLock(1,3);
+       adminUI.addLock(2,1);
+       adminUI.addLock(2,2);
+       adminUI.addLock(1,3);
 
        //Casting do objecto bikeReantal para as operações de Utilizador
        UserInterface userUI = (UserInterface) bikeRental;
