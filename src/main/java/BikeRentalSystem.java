@@ -75,7 +75,7 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
 
     public float returnBicycle(int IDDeposit, int IDBike, int endTime) {
         Deposit d = findDeposit(IDDeposit);
-        User u = findUserByBike(IDBike);
+        User u = findUserByBicycle(IDBike);
         int payment=0;
         if (d != null && u != null && u.getBike() != null && u.getBike().isInUSe()){
             Bike b = u.getBike();
@@ -119,6 +119,19 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
         }
         return u;
     }
+
+    private User findUserByBicycle(int IDBike){
+        User u = null;
+        for(User u_temp : this.users){
+            if (u_temp.getBike() != null && u_temp.getBike().getIDBike() == IDBike && u_temp.getBike().isInUSe() ){
+                u = u_temp;
+                break;
+            }
+        }
+        return u;
+    }
+
+
 
     private Bike findBike(int IDBike){
         Bike b = null;
