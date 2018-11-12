@@ -77,9 +77,9 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
     }
 
 
-    public int returnBicycle(int IDDeposit, int IDUser, int endTime) {
+    public float returnBicycle(int IDDeposit, int IDBike, int endTime) {
         Deposit d = findDeposit(IDDeposit);
-        User u = findUser(IDUser);
+        User u = findUserByBicycle(IDBike);
         int payment=0;
         if (d != null && u != null && u.getBike() != null && u.getBike().isInUSe()){
             Bike b = u.getBike();
@@ -93,7 +93,7 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
                     l.setInUse(true);
                     b.setInUSe(false);
                     l.setBike(b);
-                   return l.getIDLock();
+                   return u.getCredit();
                 }
             }
         }
@@ -123,6 +123,19 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
         }
         return u;
     }
+
+    private User findUserByBicycle(int IDBike){
+        User u = null;
+        for(User u_temp : this.users){
+            if (u_temp.getBike() != null && u_temp.getBike().getIDBike() == IDBike && u_temp.getBike().isInUSe() ){
+                u = u_temp;
+                break;
+            }
+        }
+        return u;
+    }
+
+
 
     private Bike findBike(int IDBike){
         Bike b = null;
@@ -250,6 +263,11 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
     public List<Bike> getBikes() {
         return bikes;
     }
+    public void addLock(int idDeposit, int idLock){
+        Deposit deposit = this.findDeposit(idDeposit);
+        deposit.getLocks().add(new Lock(idLock));
+    }
+
 
     public String toString() {
         return "BikeRentalSystem{\n" +
