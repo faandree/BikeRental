@@ -45,7 +45,6 @@ public interface AdministratorInterface {
      * @param amount - quantia a adicionar
      */
     public void addCredit(int idUser, int amount);
-    public void addLock(int idDeposit, int idLock);
 
     /**
      *

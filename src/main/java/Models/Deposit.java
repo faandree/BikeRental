@@ -8,24 +8,44 @@ public class Deposit {
     private int IDDeposit;
     private List<Lock> locks;
 
+    /**
+     *
+     * @param IDDeposit id do depósito a ser criado
+     */
     public Deposit(int IDDeposit) {
         this.IDDeposit = IDDeposit;
 
         this.locks = new ArrayList<>();
     }
 
+    /**
+     *
+     * @return id do depósito
+     */
     public int getIDDeposit() {
         return IDDeposit;
     }
 
+    /**
+     *
+     * @param IDDeposit id do depósito
+     */
     public void setIDDeposit(int IDDeposit) {
         this.IDDeposit = IDDeposit;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Lock> getLocks() {
         return locks;
     }
 
+    /**
+     *
+     * @param locks Lista de locks a colocar no depósito
+     */
     public void setLocks(List<Lock> locks) {
         this.locks = locks;
     }

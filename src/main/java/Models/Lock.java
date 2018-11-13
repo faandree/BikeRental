@@ -12,34 +12,64 @@ public class Lock {
         this.bike = null;
     }
 
+    /**
+     * Coloar o Lock em uso
+     */
     public void open(){
         this.InUse = true;
     }
 
+    /**
+     *  Retirar o lock do estado em uso
+     */
     public void close(){
         this.InUse = true;
     }
 
+    /**
+     *
+     * @return id do lock
+     */
     public int getIDLock() {
         return IDLock;
     }
 
+    /**
+     *
+     * @param IDLock id do lock
+     */
     public void setIDLock(int IDLock) {
         this.IDLock = IDLock;
     }
 
+    /**
+     *
+     * @return estado de uso do lock
+     */
     public boolean isInUse() {
         return InUse;
     }
 
+    /**
+     *
+     * @param inUse estado de uso do lock
+     */
     public void setInUse(boolean inUse) {
         InUse = inUse;
     }
 
+    /**
+     *
+     * @return bike presente no lock
+     */
     public Bike getBike() {
         return bike;
     }
 
+    /**
+     *
+     * @param bike presente no lock
+     */
     public void setBike(Bike bike) {
         this.bike = bike;
     }

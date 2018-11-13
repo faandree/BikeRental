@@ -263,10 +263,6 @@ public class BikeRentalSystem implements AdministratorInterface, UserInterface {
     public List<Bike> getBikes() {
         return bikes;
     }
-    public void addLock(int idDeposit, int idLock){
-        Deposit deposit = this.findDeposit(idDeposit);
-        deposit.getLocks().add(new Lock(idLock));
-    }
 
 
     public String toString() {

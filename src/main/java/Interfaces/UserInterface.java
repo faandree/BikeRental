@@ -36,7 +36,7 @@ public interface UserInterface {
      * @param endTime - unidade de tempo em que a bicicleta é levantada
      * @return id do lock onde a bicleta foi devolvida
      */
-    public int returnBicycle(int IDDeposit, int IDUser, int endTime);
+    public float returnBicycle(int IDDeposit, int IDUser, int endTime);
 
     /**
      * Verifica se o saldo da conta de um utilizador é positivo
